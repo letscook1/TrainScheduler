@@ -74,8 +74,11 @@ database.ref().on("child_added", function(childSnapshot) {
 
   // Store everything into a variable.
   var trainId = childSnapshot.val();
-  var firstTimeConverted = moment.unix(trainId.trainTime);
-  var timeDiff = moment().diff(moment(firstTimeConverted, "HH:mm"), "minutes");
+  var schedulerFirstTrainTimeConverted = moment.unix(trainId.trainTime);
+  var timeDiff = moment().diff(
+    moment(schedulerFirstTrainTimeConverted, "HH:mm"),
+    "minutes"
+  );
   var timeDiffCalc = timeDiff % parseInt(trainId.trainFreq);
   var timeDiffTotal = parseInt(trainId.trainFreq) - timeDiffCalc;
 
