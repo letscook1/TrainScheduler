@@ -1,3 +1,7 @@
+body {
+  font-style: "Rubik", sans-serif;
+}
+
 .jumbotron {
   background: url(https://media.giphy.com/media/1rPY8XIGWozEhm215a/giphy.gif);
   color: #eeeeee;
