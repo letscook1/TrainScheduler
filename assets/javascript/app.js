@@ -26,24 +26,24 @@ $("#add-train-btn").on("click", function(event) {
   event.preventDefault();
 
   // Grabs user input
-  var schedulerTrain = $("#train-name-input")
+  let schedulerTrain = $("#train-name-input")
     .val()
     .trim();
-  var schedulerDestination = $("#destination-input")
+  let schedulerDestination = $("#destination-input")
     .val()
     .trim();
-  var schedulerFirstTrainTime = moment(
+  let schedulerFirstTrainTime = moment(
     $("#first-train-time-input")
       .val()
       .trim(),
     "HH:mm"
   ).format("X");
-  var schedulerFrequncy = $("#frequency-input")
+  let schedulerFrequncy = $("#frequency-input")
     .val()
     .trim();
 
   // Creates local "temporary" object for holding train data
-  var newTrain = {
+  let newTrain = {
     train: schedulerTrain,
     destination: schedulerDestination,
     time: schedulerFirstTrainTime,
@@ -73,14 +73,14 @@ database.ref().on("child_added", function(childSnapshot) {
   console.log(childSnapshot.val());
 
   // Store everything into a variable.
-  var trainId = childSnapshot.val();
-  var schedulerFirstTrainTimeConverted = moment.unix(trainId.trainTime);
-  var timeDiff = moment().diff(
+  let trainId = childSnapshot.val();
+  let schedulerFirstTrainTimeConverted = moment.unix(trainId.trainTime);
+  let timeDiff = moment().diff(
     moment(schedulerFirstTrainTimeConverted, "HH:mm"),
     "minutes"
   );
-  var timeDiffCalc = timeDiff % parseInt(trainId.trainFreq);
-  var timeDiffTotal = parseInt(trainId.trainFreq) - timeDiffCalc;
+  let timeDiffCalc = timeDiff % parseInt(trainId.trainFreq);
+  let timeDiffTotal = parseInt(trainId.trainFreq) - timeDiffCalc;
 
   // Train Info
   console.log(schedulerTrain);
@@ -99,7 +99,7 @@ database.ref().on("child_added", function(childSnapshot) {
     timeDiffTotal = Math.abs(timeDiff - 1);
   }
   // Create the new row
-  var newRow = $("<tr>").append(
+  let newRow = $("<tr>").append(
     $("<td>").text(trainId.trainName),
     $("<td>").text(trainId.trainDestination),
     $("<td>").text(trainId.frequency),
