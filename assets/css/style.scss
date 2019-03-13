@@ -7,3 +7,9 @@ body {
   background: url(https://giphy.com/gifs/2GxEEF6AcqObu/html5);
   color: #eeeeee;
 }
+
+#train-table th,
+td {
+  display: inline-block;
+  width: 16.575%;
+}
