@@ -21,8 +21,6 @@ firebase.initializeApp(config);
 
 const database = firebase.database();
 
-// 2. Button for adding Trains
-// Initial Values
 var trainData = {
   trainName: "",
   destination: "",
