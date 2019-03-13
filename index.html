@@ -105,6 +105,17 @@
                     type="text"
                   />
                 </div>
+                <fieldset disabled>
+                  <div class="form-group hidden">
+                    <label for="trainKey">Train Key</label>
+                    <input
+                      type="text"
+                      id="trainKey"
+                      class="form-control"
+                      placeholder="Disabled input"
+                    />
+                  </div>
+                </fieldset>
                 <div class="form-group">
                   <label for="frequency-input">Frequency (min)</label>
                   <input
@@ -113,8 +124,15 @@
                     type="text"
                   />
                 </div>
-                <button class="btn btn-primary float-left" id="add-train-btn">
+                <button
+                  class="btn btn-primary float-left"
+                  type="submit"
+                  id="add-train-btn"
+                >
                   Submit
+                </button>
+                <button class="btn reset" type="reset" id="clear-train-btn">
+                  Clear
                 </button>
               </form>
             </div>
