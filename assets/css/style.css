@@ -1,0 +1,21 @@
+body {
+  font-style: "Rubik", sans-serif;
+  background: url(https://media.giphy.com/media/2GxEEF6AcqObu/giphy.gif);
+}
+
+.jumbotron {
+  background: #cccccc;
+  color: #000000;
+  text-align: center;
+}
+
+#train-table th,
+td {
+  display: inline-block;
+  width: 16.575%;
+}
+
+#key {
+  display: none;
+}
+/*# sourceMappingURL=style.css.map */

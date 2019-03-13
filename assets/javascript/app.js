@@ -209,9 +209,9 @@ dataRef
           timeDiffTotal +
           "</td><td><button class='edit btn' data-train=" +
           trainClass +
-          "><i class='glyphicon glyphicon-pencil'></i></button><button class='delete btn' data-train=" +
+          "><span>*</span></button><button class='delete btn' data-train=" +
           trainClass +
-          "><i class='glyphicon glyphicon-remove'></i></button></td>"
+          "><span>&times;</span></button></td>"
       );
     },
     function(errorObject) {
