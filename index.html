@@ -73,43 +73,47 @@
             <div class="card-body">
               <!-- Entry Form -->
               <form>
-                <div class="form-group">
-                  <label for="train-name-input">Train Name</label>
-                  <input
-                    class="form-control"
-                    id="train-name-input"
-                    type="text"
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="destination-input">Destination</label>
-                  <input
-                    class="form-control"
-                    id="destination-input"
-                    type="text"
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="first-train-time-input"
-                    >First Train Time (HH:mm - military time)</label
-                  >
-                  <input
-                    class="form-control"
-                    id="first-train-time-input"
-                    type="text"
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="frequency-input">Frequency (min)</label>
-                  <input
-                    class="form-control"
-                    id="frequency-input"
-                    type="text"
-                  />
-                </div>
-                <button class="btn btn-primary float-left" id="add-train-btn">
-                  Submit
-                </button>
+                Train Name:<br />
+                <input
+                  type="text"
+                  name="TrainName"
+                  onfocus="this.value=''"
+                  value="Train Name"
+                  class="tableEntry"
+                  id="trainName"
+                />
+                <br />
+                Destination:<br />
+                <input
+                  type="text"
+                  name="Destination"
+                  onfocus="this.value=''"
+                  value="Destination"
+                  class="tableEntry"
+                  id="destination"
+                />
+                <br />
+                First Train Time:<br />
+                <input
+                  type="text"
+                  name="Time"
+                  value="HH:MM"
+                  onfocus="this.value=''"
+                  class="tableEntry"
+                  id="trainTime"
+                />
+                <br />
+                Frequency (min):<br />
+                <input
+                  type="text"
+                  name="Frequency"
+                  value=""
+                  onfocus="this.value=''"
+                  class="tableEntry"
+                  id="frequency"
+                />
+                <br /><br />
+                <input type="submit" value="Submit" id="submit" />
               </form>
             </div>
           </div>
