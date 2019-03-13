@@ -9,7 +9,7 @@
 
 // 1. Initialize Firebase
 
-var config = {
+const config = {
   apiKey: "AIzaSyDWXQGqShAJJecPF7ZTf1Bwiwdl2tgbQW8",
   authDomain: "train-scheduler-week7.firebaseapp.com",
   databaseURL: "https://train-scheduler-week7.firebaseio.com",
@@ -28,29 +28,29 @@ setInterval(function() {
 
 $(".content").hide();
 
-// Declare variables
-var dataRef = firebase.database();
-var editTrainKey = "";
-var fbTime = moment();
-var newTime;
+// Declare letiables
+let dataRef = firebase.database();
+let editTrainKey = "";
+let fbTime = moment();
+let newTime;
 
 $("#add-train-btn").on("click", function(e) {
   e.preventDefault();
   // Grab input values
-  var trainName = $("#train-name-input")
+  let trainName = $("#train-name-input")
     .val()
     .trim();
-  var trainDestination = $("#destination-input")
+  let trainDestination = $("#destination-input")
     .val()
     .trim();
   // Convert to Unix
-  var trainTime = moment(
+  let trainTime = moment(
     $("#first-train-time-input")
       .val()
       .trim(),
     "HH:mm"
   ).format("X");
-  var trainFreq = $("#frequency-input")
+  let trainFreq = $("#frequency-input")
     .val()
     .trim();
 
@@ -123,15 +123,15 @@ dataRef
       $("tbody").empty();
 
       snapshot.forEach(function(childSnapshot) {
-        var trainClass = childSnapshot.key;
-        var trainId = childSnapshot.val();
-        var firstTimeConverted = moment.unix(trainId.trainTime);
-        var timeDiff = moment().diff(
+        let trainClass = childSnapshot.key;
+        let trainId = childSnapshot.val();
+        let firstTimeConverted = moment.unix(trainId.trainTime);
+        let timeDiff = moment().diff(
           moment(firstTimeConverted, "HH:mm"),
           "minutes"
         );
-        var timeDiffCalc = timeDiff % parseInt(trainId.trainFreq);
-        var timeDiffTotal = parseInt(trainId.trainFreq) - timeDiffCalc;
+        let timeDiffCalc = timeDiff % parseInt(trainId.trainFreq);
+        let timeDiffTotal = parseInt(trainId.trainFreq) - timeDiffCalc;
 
         if (timeDiff >= 0) {
           newTime = null;
@@ -177,15 +177,15 @@ dataRef
   .on(
     "child_changed",
     function(childSnapshot) {
-      var trainClass = childSnapshot.key;
-      var trainId = childSnapshot.val();
-      var firstTimeConverted = moment.unix(trainId.trainTime);
-      var timeDiff = moment().diff(
+      let trainClass = childSnapshot.key;
+      let trainId = childSnapshot.val();
+      let firstTimeConverted = moment.unix(trainId.trainTime);
+      let timeDiff = moment().diff(
         moment(firstTimeConverted, "HH:mm"),
         "minutes"
       );
-      var timeDiffCalc = timeDiff % parseInt(trainId.trainFreq);
-      var timeDiffTotal = parseInt(trainId.trainFreq) - timeDiffCalc;
+      let timeDiffCalc = timeDiff % parseInt(trainId.trainFreq);
+      let timeDiffTotal = parseInt(trainId.trainFreq) - timeDiffCalc;
 
       if (timeDiff > 0) {
         newTime = moment()
@@ -220,7 +220,7 @@ dataRef
   );
 
 $(document).on("click", ".delete", function() {
-  var trainKey = $(this).attr("data-train");
+  let trainKey = $(this).attr("data-train");
   dataRef.ref("trains/" + trainKey).remove();
   $("." + trainKey).remove();
 });
